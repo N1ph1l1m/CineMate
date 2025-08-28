@@ -1,0 +1,8 @@
+<div class="dropdown">
+<p class="title">{{listItem.title}}</p>
+<ul class="dropdown-content">
+    @for(item of listItem.items;track item){
+        <li><a [routerLink]="[item.link]">{{item.name}}</a></li>
+    }
+</ul>
+</div>

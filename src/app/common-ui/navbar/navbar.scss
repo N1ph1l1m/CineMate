@@ -1,0 +1,27 @@
+:host  {
+    position: relative;
+    background-color:#032541;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color:#ffffff;
+    gap:  20px;
+    font-size: 18px;
+}
+.title > a{
+    color: #ffffff;
+}
+
+
+.wrapNavItems{
+    display: none;
+    position: absolute;
+    top:70px;
+    background-color:black ;
+}
+.link:hover  ,   .wrapNavItems{
+    display: block;
+
+}

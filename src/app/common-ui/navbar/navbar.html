@@ -1,0 +1,6 @@
+
+<p class="title"> <a [routerLink]="['/main']">СineMate</a></p>
+
+@for (item of menuItems; track item; let i = $index) {
+  <app-dropdown [listItem]="item"></app-dropdown>
+}

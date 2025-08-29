@@ -1,17 +1,17 @@
 :host  {
     position: relative;
-    background-color:#032541;
+    background-color:var(--black-blue-color);
     padding: 20px;
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    color:#ffffff;
+    color:var(--light-color);
     gap:  20px;
     font-size: 18px;
 }
 .title > a{
-    color: #ffffff;
+    color: var(--light-color);
 }
 
 
@@ -19,7 +19,7 @@
     display: none;
     position: absolute;
     top:70px;
-    background-color:black ;
+    background-color:var(--dark-color) ;
 }
 .link:hover  ,   .wrapNavItems{
     display: block;

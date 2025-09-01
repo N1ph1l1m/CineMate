@@ -1,5 +1,6 @@
-<section class="section_banner">
-    <div class="bannerWrap">
+<section class="section_banner" [style.background]="bannerImg ?
+'url('+ bannerImg +')' : 'linear-gradient(rgba(0, 123, 255, 0.6), rgba(0, 123, 255, 0.616))' " >
+    <div class="bannerWrap" >
    <div>
      <h1 class="banner_title">
     CineMate — твой проводник в мире кино.
@@ -11,4 +12,22 @@
         <button type="submit">Поиск</button>
     </form>
 </div>
+</section>
+<section class="section_popular">
+    <div class="popular_header">
+        <span class="popular_title">В тренде</span>
+<div class="popular_radio-inputs">
+  <label class="popular_radio">
+    <input type="radio" name="radio" checked="">
+    <span class="popular_input-name">Сегодня</span>
+  </label>
+  <label class="popular_radio">
+    <input type="radio" name="radio">
+    <span class="popular_input-name">На этой неделе</span>
+  </label>
+</div>
+    </div>
+    <div class="popular_poster-list">
+        <app-poster-item [listPoster]="popularList"></app-poster-item>
+    </div>
 </section>

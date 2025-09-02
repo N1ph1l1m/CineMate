@@ -7,34 +7,34 @@ import { map } from 'rxjs';
   selector: 'app-mainpage',
   imports: [PosterItem],
   templateUrl: './mainpage.html',
-  styleUrl: './mainpage.scss'
+  styleUrl: './mainpage.scss',
 })
 export class Mainpage {
-mainPageService = inject(MainpageService)
-data:any = []
-bannerImg:any = ''
-popularList:any = []
+  mainPageService = inject(MainpageService);
+  data: any = [];
+  bannerImg: any = '';
+  popularList: any = [];
 
-ngOnInit(){
-this.mainPageService.getNowPlaying().subscribe(val=>{
-  this.data = val
+  ngOnInit() {
+    this.mainPageService.getNowPlaying().subscribe((val) => {
+      this.data = val;
 
-  if(this.data?.results){
-    const photos = this.data.results.map((item:any)=>item.backdrop_path)
-    const  image = photos[Math.floor(Math.random()* photos.length)]
+      if (this.data?.results) {
+        const photos = this.data.results.map((item: any) => item.backdrop_path);
+        const image = photos[Math.floor(Math.random() * photos.length)];
 
-    this.mainPageService.getImage(image,).subscribe(blob => {
-        this.bannerImg = URL.createObjectURL(blob);
+        this.mainPageService.getImage(image).subscribe((blob) => {
+          this.bannerImg = URL.createObjectURL(blob);
+        });
+      }
+    });
+
+    this.mainPageService
+      .getPopularList()
+      .pipe(map((val: any) => (val?.results ? val.results : null)))
+      .subscribe((firstItem) => {
+        this.popularList = firstItem;
+        console.log(firstItem);
       });
-  }})
-
-this.mainPageService.getPopularList()
-  .pipe(
-    map((val:any)=> val?.results ? val.results[0] : null)
-  )
-  .subscribe(firstItem => {
-    this.popularList = firstItem;
-    console.log(firstItem);
-  });
-}
+  }
 }

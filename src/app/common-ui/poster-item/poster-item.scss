@@ -1,14 +1,50 @@
-.poster_wrap{
-    padding: 5px;
-    width: 230px;
-    height:400px;
-    box-sizing:border-box;
+.poster_wrap {
+  padding: 5px;
+  width: 230px;
+  height: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  margin-right: 5px;
 }
-.poster_image{
-    // border:1px solid red;
-    width:100%;
-    object-fit: fill;
-    border-radius:20px;
-    height:90%
 
+.poster_image {
+  width: 100%;
+  object-fit: fill;
+  border-radius: 20px;
+  height: 90%;
+}
+
+.poster_description {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.poster_image_wrap {
+  position: relative;
+}
+.poster_vote_average {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  border: 1px solid red;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-color);
+  background: red;
+}
+
+.poster_title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.poster_date_release {
+  font-size: 14px;
+  color: gray;
+  font-weight: 500;
 }

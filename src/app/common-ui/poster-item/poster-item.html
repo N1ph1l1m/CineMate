@@ -1,5 +1,19 @@
-<div  class="poster_wrap">
-<img  class="poster_image" [src]="'https://image.tmdb.org/t/p/original'+listPoster.poster_path" alt=`${{listPoster.id}}`/>
-<p>{{listPoster.title}}</p>
-<p>{{listPoster.release_date}}</p>
+<div class="poster_wrap">
+  <div class="poster_image_wrap">
+    <img
+      class="poster_image"
+      [src]="'https://image.tmdb.org/t/p/original' + listPoster.poster_path"
+      alt="`${{ listPoster.id }}`"
+    />
+    <div class="poster_vote_average">
+      <span>{{ listPoster.vote_average | number : "1.1-1" }}</span>
+    </div>
+  </div>
+
+  <div class="poster_description">
+    <p class="poster_title">{{ listPoster.title }}</p>
+    <p class="poster_date_release">
+      {{ listPoster.release_date | date : "longDate" }}
+    </p>
+  </div>
 </div>

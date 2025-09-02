@@ -1,108 +1,116 @@
-.section_banner{
-width: 100vw;
-height: 400px;
-background-size: cover;
-background-position: center;
-padding:50px;
-
+.section_banner {
+  width: 100vw;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
 }
-.bannerWrap{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
+.bannerWrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
 }
-.banner_title  , .banner_title_description{
-    font-size: 48px;
-    color:var(--light-color);
+.banner_title,
+.banner_title_description {
+  font-size: 48px;
+  color: var(--light-color);
 }
-.banner_title_description{
-    font-size: 35px;
+.banner_title_description {
+  font-size: 35px;
 }
-.banner_form_search{
-    background:var(--light-color);
-    width: 100%;
-    border-radius: 30px;
-    padding-left: 15px;
-    display: flex;
-    justify-content: space-between;
-    input{
-        width: 90%;
-        font-size: 16px;
-    }
-    button{
-        width:80px;
-        color:var(--light-color);
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 28px;
-        background: -webkit-linear-gradient(90deg,#0047cc,#005aff,#3898ff);  background: linear-gradient(90deg,#0047cc,#005aff,#3898ff);
-    }
+.banner_form_search {
+  background: var(--light-color);
+  width: 100%;
+  border-radius: 30px;
+  padding-left: 15px;
+  display: flex;
+  justify-content: space-between;
+  input {
+    width: 90%;
+    font-size: 16px;
+  }
+  button {
+    width: 80px;
+    color: var(--light-color);
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 28px;
+    background: -webkit-linear-gradient(90deg, #0047cc, #005aff, #3898ff);
+    background: linear-gradient(90deg, #0047cc, #005aff, #3898ff);
+  }
 }
-.section_popular{
-    padding: 30px;
+.section_popular {
+  padding: 30px;
 }
-.popular_header{
-    display: flex;
-    width:500px;
-    height: 40px;
-    align-items:center;
-    gap: 20px;
-    .popular_title{
-        font-size: 34px;
-    }
+.popular_header {
+  display: flex;
+  width: 500px;
+  height: 40px;
+  align-items: center;
+  gap: 20px;
+  .popular_title {
+    font-size: 34px;
+  }
 }
-.popular_radio-inputs  {
+.popular_radio-inputs {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   border-radius: 30px;
   background-color: transparent;
-  border:1px solid var(--black-blue-color);
+  border: 1px solid var(--black-blue-color);
   box-sizing: border-box;
   box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
   width: 300px;
   font-size: 20px;
 
+  & .popular_radio {
+    flex: 1 1 auto;
+    text-align: center;
+  }
 
-& .popular_radio {
-  flex: 1 1 auto;
-  text-align: center;
+  & .popular_radio input {
+    display: none;
+  }
+
+  & .popular_radio .popular_input-name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 28px;
+    border: none;
+    padding: 0.5rem 0;
+    color: rgb(54, 85, 51);
+    transition: all 0.15s ease-in-out;
+  }
+
+  & .popular_radio input:checked + .popular_input-name {
+    background-color: var(--black-blue-color);
+    color: var(--light-color);
+    font-weight: 600;
+  }
 }
 
-& .popular_radio input {
-  display: none;
-}
-
-& .popular_radio .popular_input-name {
+.popular_poster-list {
+  padding: 5px;
+  width: 100%;
+  height: 410px;
+  overflow-x: scroll;
+  overflow-y: hidden;
   display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  border-radius: 28px;
-  border: none;
-  padding: .5rem 0;
-  color: rgb(54, 85, 51);
-  transition: all .15s ease-in-out;
+  flex-wrap: nowrap;
 }
 
-& .popular_radio input:checked + .popular_input-name {
-  background-color: var(--black-blue-color);
-  color: var(--light-color);
-  font-weight: 600;
-}
-}
-
-
-
-@media screen and (max-width:955px) {
-    .banner_title  , .banner_title_description{
+@media screen and (max-width: 955px) {
+  .banner_title,
+  .banner_title_description {
     font-size: 28px;
-}
-.banner_title_description{
+  }
+  .banner_title_description {
     font-size: 23px;
-}
-
+  }
 }

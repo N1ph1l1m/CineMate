@@ -1,0 +1,11 @@
+  <div class="popular_header">
+    <span class="popular_title">{{contentItems.title}}</span>
+    <form class="popular_radio-inputs">
+      @for(item of contentItems.items;track item){
+        <label class="popular_radio">
+        <input type="radio" [name]="item.value" [checked]="item.value === selectedValue"  (change)="onSelect(item.value)"/>
+        <span class="popular_input-name">{{item.name}}</span>
+      </label>
+      }
+    </form>
+  </div>

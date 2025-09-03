@@ -20,22 +20,23 @@
   </div>
 </section>
 <section class="section_popular">
-  <div class="popular_header">
-    <span class="popular_title">В тренде</span>
-    <form class="popular_radio-inputs">
-      <label class="popular_radio">
-        <input type="radio" name="radio" checked="" />
-        <span class="popular_input-name">Сегодня</span>
-      </label>
-      <label class="popular_radio">
-        <input type="radio" name="radio" />
-        <span class="popular_input-name">На этой неделе</span>
-      </label>
-    </form>
-  </div>
+  <app-content-switcher [contentItems]="contentSwitcher[0]" (selectionChange)="onTrendsSelected($event)"></app-content-switcher>
+
   @if (popularList) {
   <div class="popular_poster-list">
     @for (item of popularList; track $index) {
+    <app-poster-item [listPoster]="item"></app-poster-item>
+    }
+  </div>
+  }
+</section>
+
+<section class="section_popular">
+  <app-content-switcher [contentItems]="contentSwitcher[1]" (selectionChange)="onPopularSelected($event)"></app-content-switcher>
+
+  @if (trendsList) {
+  <div class="popular_poster-list">
+    @for (item of trendsList; track $index) {
     <app-poster-item [listPoster]="item"></app-poster-item>
     }
   </div>

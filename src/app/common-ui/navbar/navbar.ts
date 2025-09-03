@@ -13,7 +13,7 @@ export class Navbar {
     items:[
       {name:"Популярные",link:"/movies"},
       {name:"Смотрят сейчас" , link:"movies/now-playing"},
-      { name:"Ожидаемые", link:"movies/upcoming"},           {name:"Лучшие",link:"movies/top-rated"}]
+      { name:"Ожидаемые", link:"movies/upcoming"}, {name:"Лучшие",link:"movies/top-rated"}]
   },
   {
     title:"Сериалы",

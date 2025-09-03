@@ -11,14 +11,9 @@ export class MainpageService {
   apiUrl = environment.apiUrl;
   templateUrlImg = `https://image.tmdb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)`;
 
+languages = '?language=ru-RU'
   getNowPlaying() {
-    return this.http.get(`${this.apiUrl}/movie/now_playing`, {
-      headers: this.headers,
-    });
-  }
-
-  getPopularList() {
-    return this.http.get(`${this.apiUrl}/movie/popular`, {
+    return this.http.get(`${this.apiUrl}/movie/now_playing${this.languages}`, {
       headers: this.headers,
     });
   }
@@ -28,4 +23,38 @@ export class MainpageService {
       responseType: 'blob',
     });
   }
-}
+
+  getTrendingMovie(time:string){
+    return this.http.get(`${this.apiUrl}/trending/movie/${time}${this.languages}`, {headers: this.headers,
+    })
+  }
+  getTrendingTV(time:string){
+    return this.http.get(`${this.apiUrl}/trending/tv/${time}${this.languages}`, {headers: this.headers,
+    })
+  }
+  getTrendingPeople(time:string){
+    return this.http.get(`${this.apiUrl}/trending/person/${time}${this.languages}`, {headers: this.headers,
+    })
+  }
+  getPopularList() {
+    return this.http.get(`${this.apiUrl}/movie/popular${this.languages}`, {
+      headers: this.headers,
+    });
+  }
+
+   getOnTheAir() {
+    return this.http.get(`${this.apiUrl}/tv/on_the_air${this.languages}`, {
+      headers: this.headers,
+    });
+  }
+    getAiringToday() {
+    return this.http.get(`${this.apiUrl}/tv/airing_today${this.languages}`, {
+      headers: this.headers,
+    });}
+
+    getTVGenres(){
+      return this.http.get(`${this.apiUrl}/discover/tv?with_genres=16&without_genres=10762&without_genres=10751&with_original_language=ja`,{
+      headers: this.headers,
+    })
+    }
+  }

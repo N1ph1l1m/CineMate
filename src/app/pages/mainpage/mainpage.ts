@@ -3,20 +3,27 @@ import { MainpageService } from '../../data/services/mainpage/mainpage-service';
 import { PosterItem } from '../../common-ui/poster-item/poster-item';
 import { map, of } from 'rxjs';
 import { ContentSwitcher } from '../../content-switcher/content-switcher';
+import { IApiResponse, IApiResponseResults } from '../../interfaces/api-response.interface';
+import { GenreItem } from '../../common-ui/genre-item/genre-item';
+import { IContentSwitcher } from './mainpage.interface';
 
 @Component({
   selector: 'app-mainpage',
-  imports: [PosterItem,ContentSwitcher],
+  imports: [PosterItem,ContentSwitcher,GenreItem],
   templateUrl: './mainpage.html',
   styleUrl: './mainpage.scss',
 })
+
+
 export class Mainpage {
+
   mainPageService = inject(MainpageService);
-  data: any = [];
+
   bannerImg: any = '';
   popularList: any = [];
   trendsList: any = [];
-  contentSwitcher:any = [
+  genresList : any= [];
+  contentSwitcher:IContentSwitcher[] = [
     {title:'В тренде',
       items:[{name:'Сегодня',value:"day"},{name:'На этой неделе',value:"week"}]
   },
@@ -28,14 +35,13 @@ export class Mainpage {
   },
 ]
 
-  ngOnInit() {
-    this.mainPageService.getNowPlaying().subscribe((val) => {
-      this.data = val;
+ngOnInit() {
+    this.mainPageService.getNowPlaying().subscribe((val:IApiResponse) => {
+      const response:IApiResponseResults[] = val.results;
 
-      if (this.data?.results) {
-        const photos = this.data.results.map((item: any) => item.backdrop_path);
+      if (response) {
+        const photos = response.map((item: any) => item.backdrop_path);
         const image = photos[Math.floor(Math.random() * photos.length)];
-
         this.mainPageService.getImage(image).subscribe((blob) => {
           this.bannerImg = URL.createObjectURL(blob);
         });
@@ -45,11 +51,19 @@ export class Mainpage {
 
     this.mainPageService
       .getPopularList()
-      .pipe(map((val: any) => (val?.results ? val.results : null)))
+      .pipe(map((val) => (val?.results ? val.results : null)))
       .subscribe((firstItem) => {
         this.popularList = firstItem;
-        console.log(firstItem);
+        // console.log(firstItem);
       });
+
+    this.mainPageService.getListGenres()
+    .pipe(map((val:any)=>val?.genres ? val.genres : null))
+    .subscribe((genres)=>{
+      this.genresList = genres
+      // console.log(genres)
+    })
+
   }
 
 
@@ -70,8 +84,6 @@ onTrendsSelected(value:string){
   })
 }
 onPopularSelected(value:string){
-  console.log(value)
-
   let obs$;
   if(value == 'online'){
      obs$ = this.mainPageService.getOnTheAir();
@@ -84,17 +96,13 @@ onPopularSelected(value:string){
   }else{
     obs$ = of([])
   }
-
   obs$.pipe(map((val:any)=>(val?.results ? val.results : [])))
   .subscribe((data)=>{
     this.trendsList = data;
+
     console.log(data)
   })
 }
-
-
-
-
 
 
 

@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
+import { Observable } from 'rxjs';
+import { IApiResponse } from '../../../interfaces/api-response.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +14,8 @@ export class MainpageService {
   templateUrlImg = `https://image.tmdb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)`;
 
 languages = '?language=ru-RU'
-  getNowPlaying() {
-    return this.http.get(`${this.apiUrl}/movie/now_playing${this.languages}`, {
+  getNowPlaying():Observable<IApiResponse> {
+    return this.http.get<IApiResponse>(`${this.apiUrl}/movie/now_playing${this.languages}`, {
       headers: this.headers,
     });
   }
@@ -36,8 +38,8 @@ languages = '?language=ru-RU'
     return this.http.get(`${this.apiUrl}/trending/person/${time}${this.languages}`, {headers: this.headers,
     })
   }
-  getPopularList() {
-    return this.http.get(`${this.apiUrl}/movie/popular${this.languages}`, {
+  getPopularList():Observable<IApiResponse> {
+    return this.http.get<IApiResponse>(`${this.apiUrl}/movie/popular${this.languages}`, {
       headers: this.headers,
     });
   }
@@ -52,9 +54,18 @@ languages = '?language=ru-RU'
       headers: this.headers,
     });}
 
-    getTVGenres(){
-      return this.http.get(`${this.apiUrl}/discover/tv?with_genres=16&without_genres=10762&without_genres=10751&with_original_language=ja`,{
+    // getTVGenres(){
+    //   return this.http.get(`${this.apiUrl}/discover/tv?with_genres=16&without_genres=10762&without_genres=10751&with_original_language=ja`,{
+    //   headers: this.headers,
+    // })
+    // }
+       getTVGenres(){
+      return this.http.get(`${this.apiUrl}/discover/movie?with_genres=12`,{
       headers: this.headers,
     })
+    }
+
+    getListGenres(){
+      return this.http.get(`${this.apiUrl}/genre/movie/list${this.languages}`,{headers:this.headers})
     }
   }

@@ -31,6 +31,13 @@
   }
 </section>
 
+<section class="section_genres">
+  @for(genre of genresList;track genre){
+      <app-genre-item [genres]="genre"></app-genre-item>
+  }
+
+</section>
+
 <section class="section_popular">
   <app-content-switcher [contentItems]="contentSwitcher[1]" (selectionChange)="onPopularSelected($event)"></app-content-switcher>
 

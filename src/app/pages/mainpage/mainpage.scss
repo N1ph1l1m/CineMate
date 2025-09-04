@@ -55,6 +55,17 @@
   overflow-y: hidden;
   display: flex;
   flex-wrap: nowrap;
+  align-items:center;
+}
+
+.section_genres{
+height: 450px;
+background:var(--black-blue-color);
+padding: 10px;
+display: flex;
+gap: 10px;
+   overflow-y: hidden;
+    overflow-x: scroll;
 }
 
 @media screen and (max-width: 955px) {

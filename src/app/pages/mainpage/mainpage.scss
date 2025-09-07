@@ -46,7 +46,6 @@
   padding: 30px;
 }
 
-
 .popular_poster-list {
   padding: 8px;
   width: 100%;
@@ -55,17 +54,17 @@
   overflow-y: hidden;
   display: flex;
   flex-wrap: nowrap;
-  align-items:center;
+  align-items: center;
 }
 
-.section_genres{
-height: 450px;
-background:var(--black-blue-color);
-padding: 10px;
-display: flex;
-gap: 10px;
-   overflow-y: hidden;
-    overflow-x: scroll;
+.section_genres {
+  height: 350px;
+  background: var(--black-blue-color);
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  overflow-y: hidden;
+  overflow-x: scroll;
 }
 
 @media screen and (max-width: 955px) {

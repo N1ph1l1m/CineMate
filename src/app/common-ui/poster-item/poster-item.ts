@@ -1,6 +1,5 @@
 import { CurrencyPipe, DatePipe, DecimalPipe } from '@angular/common';
 import { Component, Input, signal } from '@angular/core';
-
 @Component({
   selector: 'app-poster-item',
   imports: [DatePipe, DecimalPipe],
@@ -13,19 +12,17 @@ export class PosterItem {
   }
   @Input() listPoster: any;
 
-
-
-getVoteAverage(poster: any): string  {
-  if (!poster) return '';
-  let vote_average = Math.floor(parseFloat(poster));
-    if(vote_average <=4){
-      return 'red'
-    }else if(vote_average >4 &&  vote_average <= 7){
-      return 'orange'
-    }else if (vote_average >= 8 &&  vote_average <= 10){
-      return 'green'
-    }else{
-      return 'black'
+  getVoteAverage(poster: any): string {
+    if (!poster) return '';
+    let vote_average = Math.floor(parseFloat(poster));
+    if (vote_average <= 4) {
+      return 'red';
+    } else if (vote_average > 4 && vote_average <= 7) {
+      return 'orange';
+    } else if (vote_average >= 8 && vote_average <= 10) {
+      return 'green';
+    } else {
+      return 'black';
     }
-}
+  }
 }

@@ -9,8 +9,9 @@ import { SerialsPopular } from './pages/serials/serials-popular/serials-popular'
 import { SerialsNowPlaying } from './pages/serials/serials-now-playing/serials-now-playing';
 import { SerialsToTv } from './pages/serials/serials-to-tv/serials-to-tv';
 import { SerialsTopRated } from './pages/serials/serials-top-rated/serials-top-rated';
-import { PeoplePopular } from './pages/people/people-popular/people-popular';
-import { PeopleDetail } from './pages/people/people-detail/people-detail';
+import { PersonPopular } from './pages/person/person-popular/person-popular';
+import { PersonDetail } from './pages/person/person-detail/person-detail';
+import { MovieDetail } from './pages/movies/movie-detail/movie-detail';
 
 export const routes: Routes = [
     {path:"",component:Layout, children:[
@@ -18,6 +19,7 @@ export const routes: Routes = [
         {path:"main",component:Mainpage},
         {path:"movies",children:[
             {path:"",component:Popular},
+            {path:":id",component:MovieDetail},
             {path:"now-playing",component:NowPlaying},
             {path:"upcoming",component:Upcomming},
             {path:"top-rated",component:TopRated}
@@ -29,9 +31,9 @@ export const routes: Routes = [
             {path:"top-rated",component:SerialsTopRated}
         ]},
         {
-            path:"people",children:[
-                {path:"",component:PeoplePopular},
-                {path:"people/:id",component:PeopleDetail}
+            path:"person",children:[
+                {path:"",component:PersonPopular},
+                {path:":id",component:PersonDetail}
             ]
         }
     ]}];

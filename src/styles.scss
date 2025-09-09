@@ -30,6 +30,7 @@ input::-ms-clear{display: none;}
 button{cursor: pointer;}
 button::-moz-focus-inner {padding:0;border:0;}
 a, a:visited{text-decoration: none;}
+a {color:inherit}
 a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
@@ -60,6 +61,6 @@ input[type="date"] {
 	--light-color:#ffffff;
 	--black-blue-color:#032541;
 	--gray-color:#b4b4b452;
-	
+
 
 }

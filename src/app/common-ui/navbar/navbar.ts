@@ -25,6 +25,6 @@ export class Navbar {
   },
   {
     title:"Люди",
-    items:[{name:"Популярные люди",link:"/people"}]
+    items:[{name:"Популярные люди",link:"/person"}]
   }]
 }

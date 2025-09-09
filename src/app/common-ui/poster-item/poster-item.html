@@ -1,14 +1,12 @@
 <div class="poster_wrap">
+  <a [routerLink]="listPoster.media_type !== 'person' ? ['/movies' , listPoster.id]:['/person' , listPoster.id]">
   <div class="poster_image_wrap">
     <img
       class="poster_image"
       [src]="
-        listPoster.profile_path || listPoster.poster_path != null
-          ? 'https://image.tmdb.org/t/p/original' +
-            (listPoster.media_type == 'person'
-              ? listPoster.profile_path
-              : listPoster.poster_path)
-          : 'assets/images/no-image.png'
+            listPoster.media_type == 'person'
+              ? (listPoster.profile_path|imagePipe)
+              : (listPoster.poster_path|imagePipe)
       "
       alt="`${{ listPoster.id }}`"
     />
@@ -30,4 +28,6 @@
       }}
     </p>
   </div>
+  </a>
+
 </div>

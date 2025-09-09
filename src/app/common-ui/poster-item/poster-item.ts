@@ -1,8 +1,10 @@
 import { CurrencyPipe, DatePipe, DecimalPipe } from '@angular/common';
 import { Component, Input, signal } from '@angular/core';
+import { ImagePipePipe } from '../../pipes/image-pipe/image-pipe-pipe';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-poster-item',
-  imports: [DatePipe, DecimalPipe],
+  imports: [DatePipe, DecimalPipe,ImagePipePipe,RouterLink],
   templateUrl: './poster-item.html',
   styleUrl: './poster-item.scss',
 })

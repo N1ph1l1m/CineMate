@@ -1,0 +1,15 @@
+export interface IPersonDetail{
+    adult:boolean,
+    biography:string,
+    birthday:string,
+    deathday:string|null,
+    gender:number,
+    homepage:string,
+    id:number,
+    imdb_id:string,
+    known_for_departmant:string,
+    name:string,
+    place_of_birth:string,
+    popularity:string,
+    profile_path:string,
+}

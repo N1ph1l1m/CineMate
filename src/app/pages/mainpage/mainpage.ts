@@ -9,10 +9,11 @@ import {
 } from '../../interfaces/api-response.interface';
 import { GenreItem } from '../../common-ui/genre-item/genre-item';
 import { IContentSwitcher } from './mainpage.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-mainpage',
-  imports: [PosterItem, ContentSwitcher, GenreItem],
+  imports: [PosterItem, ContentSwitcher, GenreItem,RouterLink],
   templateUrl: './mainpage.html',
   styleUrl: './mainpage.scss',
 })
@@ -110,8 +111,6 @@ export class Mainpage {
       .pipe(map((val: any) => (val?.results ? val.results : [])))
       .subscribe((data) => {
         this.trendsList = data;
-
-        console.log(data);
       });
   }
 }
